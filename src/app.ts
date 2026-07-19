@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import { errorHandler, notFoundHandler } from "./middleware";
 
 const app = express();
 
