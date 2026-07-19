@@ -1,6 +1,8 @@
-import express from "express";
 import cors from "cors";
+import express from "express";
+
 import { errorHandler, notFoundHandler } from "./middleware";
+import apiRouter from "./routes";
 
 const app = express();
 
@@ -13,5 +15,10 @@ app.get("/health", (_request, response) => {
     message: "eCommerce API is running",
   });
 });
+
+app.use(apiRouter);
+
+app.use(notFoundHandler);
+app.use(errorHandler);
 
 export default app;
